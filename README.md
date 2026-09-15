@@ -4,7 +4,7 @@
 
 Submitted to the **2026 IEEE ComSoc "Communications Technology Changing the World" Student Competition**.
 
-> TINKUY (Quechua: "encounter" / "meeting point") audits the *real* quality of internet service delivered to rural schools — not just whether a link is nominally "up" — and preserves evidence of degradation even when the connection itself fails.
+> TINKUY (Quechua: "encounter" / "meeting point") audits the *real* quality of internet service delivered to rural schools — not just whether a link is nominally "up", and preserves evidence of degradation even when the connection itself fails.
 
 ## The problem: "Ghost Internet"
 
@@ -75,7 +75,7 @@ A total connectivity outage was also deliberately induced (MAC filtering at the 
 
 ## Author
 
-**Lucia Gil Vivanco** — IEEE ComSoc Student Member
+**Lucia Gil Vivanco** - IEEE ComSoc Student Member
 Pontificia Universidad Católica del Perú (PUCP)
 a20233424@pucp.edu.pe
 
