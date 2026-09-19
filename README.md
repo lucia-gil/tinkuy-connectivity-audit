@@ -4,7 +4,7 @@
 
 Submitted to the **2026 IEEE ComSoc "Communications Technology Changing the World" Student Competition**.
 
-> TINKUY (Quechua: "encounter" / "meeting point") audits the *real* quality of internet service delivered to rural schools — not just whether a link is nominally "up", and preserves evidence of degradation even when the connection itself fails.
+> TINKUY (Quechua: "encounter" / "meeting point") audits the *real* quality of internet service delivered to rural schools — not just whether a link is nominally "up" — and preserves evidence of degradation even when the connection itself fails.
 
 ## The problem: "Ghost Internet"
 
@@ -23,7 +23,7 @@ tinkuy-repo/
 ├── tools/
 │   └── tinkuy_serial_logger.py         # Python/pyserial logger for local CSV telemetry capture
 ├── data/
-│   └── tinkuy_cloud_received.csv       # Real telemetry: 13.6h of continuous field testing
+│   └── tinkuy_cloud_received.csv       # Real telemetry: 7h40m of active probing within a 13.6h test window
 └── docs/
     ├── figure_architecture_layers.png  # 3-layer architecture diagram
     ├── figure1_topology.png            # Cisco Packet Tracer topology (illustrative)
@@ -34,13 +34,13 @@ tinkuy-repo/
 
 TINKUY is designed around three layers:
 
-1. **Perception Layer** — active probing (ICMP), measuring latency and packet loss every 5 seconds.
-2. **Edge Layer** — Store-and-Forward: readings that fail to reach the cloud are retained locally (RAM ring buffer) instead of discarded, and synchronized as a batch once connectivity is restored.
+1. **Perception Layer** — active probing (ICMP), measuring latency and packet loss at a nominal 5-second interval.
+2. **Edge Layer** — Store-and-Forward: readings that fail to reach the cloud are retained locally (RAM FIFO buffer) instead of discarded, and synchronized as a batch once connectivity is restored.
 3. **Cloud Layer** *(target design, not yet implemented)* — ingestion, time-series storage, and automated SLA-violation detection.
 
-This first prototype (`firmware/`) validates layers 1 and a minimal version of layer 2, running on an ESP32 microcontroller — well below the target Raspberry Pi/Docker/MQTT-QoS2 architecture described in the full submission, but enough to demonstrate the core principle in real hardware.
+This first prototype (`firmware/`) validates layer 1 and a minimal version of layer 2, running on an ESP32 microcontroller — well below the target Raspberry Pi/Docker/MQTT-QoS2 architecture described in the full submission, but enough to demonstrate the core principle in real hardware.
 
-![Architecture diagram](docs/figure_architecture_layers_3.png)
+![Architecture diagram](docs/figure_architecture_layers.png)
 
 ## Hardware / software used
 
@@ -62,7 +62,7 @@ This first prototype (`firmware/`) validates layers 1 and a minimal version of l
    pip install pyserial
    python tools/tinkuy_serial_logger.py
    ```
-4. Data received by the server is saved to `tinkuy_cloud_received.csv`; a sample from the actual 13.6-hour field test is included in `data/`.
+4. Data received by the server is saved to `tinkuy_cloud_received.csv`; the actual dataset from the 7h40m field test (within a 13.6-hour testing window) is included in `data/`.
 
 ## Field-test results (summary)
 
