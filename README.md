@@ -71,7 +71,7 @@ This first prototype (`firmware/`) validates layers 1 and a minimal version of l
 | Home (fixed 2.4GHz WiFi) | ~5h 54min | 36.4 ms | 0.99% |
 | University campus (mobile hotspot) | ~1h 46min | 167.5 ms | 5.68% |
 
-A total connectivity outage was also deliberately induced (MAC filtering at the access point) for ~7.5 minutes; the 70 readings taken during that window were retained locally and synchronized as a single batch upon reconnection, confirming the Store-and-Forward mechanism.
+A total connectivity outage was also deliberately induced (MAC filtering at the access point) for ~7.5 minutes. Upon reconnection, the buffer released a single synchronized batch of 70 readings — accumulated across two separate periods of failed delivery (an earlier gap before the ingestion server had started, plus the deliberate outage itself) — confirming that the Store-and-Forward mechanism survives multiple, non-contiguous disruptions.
 
 ## Author
 
