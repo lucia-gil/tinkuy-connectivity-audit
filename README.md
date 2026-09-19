@@ -40,7 +40,7 @@ TINKUY is designed around three layers:
 
 This first prototype (`firmware/`) validates layers 1 and a minimal version of layer 2, running on an ESP32 microcontroller — well below the target Raspberry Pi/Docker/MQTT-QoS2 architecture described in the full submission, but enough to demonstrate the core principle in real hardware.
 
-![Architecture diagram](docs/figure_architecture_layers.png)
+![Architecture diagram](docs/figure_architecture_layers_3.png)
 
 ## Hardware / software used
 
